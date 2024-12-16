@@ -27,7 +27,7 @@
 //Copyright(C) 中景园电子2014/3/16
 //All rights reserved
 //******************************************************************************/
-
+#include"main.h"
 #include "delay.h"
 #include "sys.h"
 #include "oled.h"
@@ -43,16 +43,21 @@
 	 	LED_Init();		  	 	//初始化与LED连接的硬件接口
 		KEY_Init();          	//初始化与按键连接的硬件接口
 		OLED_Clear();
-//		LED_ON;
-		OLED_ShowCHinese(30,0,0);//元
-		OLED_ShowCHinese(48,0,1);//器
-		OLED_ShowCHinese(66,0,2);//科
-		OLED_ShowCHinese(84,0,3);//技
-		OLED_ShowString(0,3,"0.96' OLED TEST");
-		//OLED_ShowString(8,2,"ZHONGJINGYUAN");  
-	 //	OLED_ShowString(20,4,"2014/05/01");  
-		OLED_ShowString(0,6,"ASCII:");  
-		OLED_ShowString(63,6,"CODE:");
+    //		LED_ON;
+	// 	OLED_ShowCHinese(30,0,0);//元
+	// 	OLED_ShowCHinese(48,0,1);//器
+	// 	OLED_ShowCHinese(66,0,2);//科
+	// 	OLED_ShowCHinese(84,0,3);//技
+	// 	OLED_ShowString(0,3,"0.96' OLED TEST");
+	// 	//OLED_ShowString(8,2,"ZHONGJINGYUAN");  
+	//  //	OLED_ShowString(20,4,"2014/05/01");  
+	// 	OLED_ShowString(0,6,"ASCII:");  
+	// 	OLED_ShowString(63,6,"CODE:");
+
+
+
+
+
 	
 		LED0=0;
 		LED1=0;
@@ -99,3 +104,16 @@
 	
 }
 
+/*******************************************************************************
+* 函数名        : Delay
+* 描述          : 插入一个延时函数
+* 输入          : nCount: specifies the delay time length (time base 10 ms).
+* 输出          : None
+* 返回          : None
+*******************************************************************************/
+void Delay(__IO uint32_t nCount)
+{
+  TimingDelay = nCount;
+  while(TimingDelay != 0){}
+  SysTick->VAL = (uint32_t)0x0;
+}
