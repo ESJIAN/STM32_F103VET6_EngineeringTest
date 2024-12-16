@@ -42,6 +42,7 @@ unsigned char nfc_data[16];     // Notice:不能换成u8类型数组,否则Debug会进入循环
 unsigned char char_nfc_data[16];
  int main(void)
  {	u8 t;
+	  u8 i;
 		delay_init();	    	 //延时函数初始化	  
 		NVIC_Configuration(); 	 //设置NVIC中断分组2:2位抢占优先级，2位响应优先级 	LED_Init();			     //LED端口初始化
 		OLED_Init();			//初始化OLED  
@@ -62,7 +63,7 @@ unsigned char char_nfc_data[16];
 		{
 			// 如果读取成功，则把数据帧的数据包拷贝到nfc_data数组中
 			memcpy(nfc_data,Card.BlockData,sizeof(Card.BlockData));
-			for (int i = 0; i < 16; i++) 
+			for (i = 0; i < 16; i++) 
             {
                 sprintf(char_nfc_data + 2 * i, "%02x", nfc_data[i]);
             }
