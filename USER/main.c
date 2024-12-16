@@ -37,8 +37,8 @@
 #include "Card.H"
 
 u32 TimingDelay;
-
-
+u8 bTemp;
+unsigned char nfc_data[16];
  int main(void)
  {	u8 t;
 		delay_init();	    	 //延时函数初始化	  
@@ -72,7 +72,7 @@ u32 TimingDelay;
 		bTemp = CommandProcess();
 		if(bTemp == 0)
 		{
-				u8 nfc_data[16] = Card.BlockData;
+				nfc_data = Card.BlockData;
 
 		}
 
