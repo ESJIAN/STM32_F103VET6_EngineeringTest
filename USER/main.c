@@ -38,7 +38,7 @@
 #include"string.h"
 u32 TimingDelay;
 u8 bTemp;
-unsigned char nfc_data[16];
+unsigned char nfc_data[16];     // Notice:不能换成u8类型数组,否则Debug会进入循环
 unsigned char char_nfc_data[16];
  int main(void)
  {	u8 t;
