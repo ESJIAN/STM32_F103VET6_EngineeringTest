@@ -91,19 +91,19 @@ unsigned char char_nfc_data[16];
 					OLED_DrawBMP(0,0,128,8,BMP2);
 					break;
 				case WKUP_PRES:				
-					LED0=!LED0;
-					LED1=!LED1;
-					OLED_Clear();
-					OLED_ShowCHinese(30,0,0);//元
-					OLED_ShowCHinese(48,0,1);//器
-					OLED_ShowCHinese(66,0,2);//科
-					OLED_ShowCHinese(84,0,3);//技
-					OLED_ShowString(0,3,"0.96' OLED TEST");
-					//OLED_ShowString(8,2,"ZHONGJINGYUAN");  
-				 //	OLED_ShowString(20,4,"2014/05/01");  
-					OLED_ShowString(0,6,"ASCII:");  
+					// LED0=!LED0;
+					// LED1=!LED1;
+					// OLED_Clear();
+					// OLED_ShowCHinese(30,0,0);//元
+					// OLED_ShowCHinese(48,0,1);//器
+					// OLED_ShowCHinese(66,0,2);//科
+					// OLED_ShowCHinese(84,0,3);//技
+					// OLED_ShowString(0,3,"0.96' OLED TEST");
+					// //OLED_ShowString(8,2,"ZHONGJINGYUAN");  
+				    // //OLED_ShowString(20,4,"2014/05/01");  
+					// OLED_ShowString(0,6,"ASCII:");  
 
-					OLED_ShowString(63,6,"CODE:");
+					// OLED_ShowString(63,6,"CODE:");
 				
 					break;
 				default:
