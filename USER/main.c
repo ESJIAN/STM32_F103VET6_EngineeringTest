@@ -36,6 +36,7 @@
 #include "led.h"
 #include "Card.H"
 #include "string.h"
+#include "voice.h"
 // u32 TimingDelay;
 u8 btemp;
 unsigned char nfc_data[16]={9};     // Notice:不能换成u8类型数组,否则Debug会进入循环
@@ -51,7 +52,7 @@ unsigned char char_nfc_data[16]={0};	//
 		KEY_Init();          	//初始化与按键连接的硬件接口
 		OLED_Clear();
 		NFC_Init(115200);
-
+		Voice_modle_Init(9600);
 	
 		LED0=0;
 		LED1=0;
