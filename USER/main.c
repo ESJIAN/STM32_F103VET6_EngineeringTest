@@ -27,7 +27,7 @@
 //Copyright(C) 中景园电子2014/3/16
 //All rights reserved
 //******************************************************************************/
-#include"main.h"
+#include "main.h"
 #include "delay.h"
 #include "sys.h"
 #include "oled.h"
@@ -35,7 +35,7 @@
 #include "key.h"
 #include "led.h"
 #include "Card.H"
-#include"string.h"
+#include "string.h"
 u32 TimingDelay;
 u8 bTemp;
 unsigned char nfc_data[16];     // Notice:不能换成u8类型数组,否则Debug会进入循环
