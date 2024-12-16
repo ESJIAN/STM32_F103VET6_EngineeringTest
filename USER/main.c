@@ -76,15 +76,16 @@ unsigned char char_nfc_data[16]={0};	//
 			OLED_ShowString(0,6,char_nfc_data);
 			// Notice1:u8字符组可以直接传入汉字,会自动转换为GBK码
 			// 根据数据包的十六进制内容播报不同的提示
-			if (char_nfc_data[0]==0xb3&&char_nfc_data[1]==0xe0&&char_nfc_data[2]==0xcb&&char_nfc_data[3]==0xae)
+			// Notice:不能把下面的nfc_data[]换成char_nfc_data[]，否则无法判断,因为char_nfc_data中的0xB3E0CBAD是字符，而nfc_data中的0xB3E0CBAD是16进制数据
+			if (nfc_data[0]==0xB3&&nfc_data[1]==0xE0&&nfc_data[2]==0xCB&&nfc_data[3]==0xAE)
 			{
 				SendData_to_Voice_modle("赤水",sizeof("赤水"));
 			}
 			else
 			{
-				SendData_to_Voice_modle("待添加",sizeof(char_nfc_data));
+				SendData_to_Voice_modle("待添加",sizeof("待添加"));
+				SendData_to_Voice_modle("该卡片十六进制内容为",sizeof("该卡片十六进制内容为"));
 				SendData_to_Voice_modle(char_nfc_data,sizeof(char_nfc_data));
-
 			}
 
 		}
