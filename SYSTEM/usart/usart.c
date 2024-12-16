@@ -156,9 +156,9 @@ int GetKey (void)  {
 // 				}
 // 			}   		 
 //      } 
-#ifdef OS_TICKS_PER_SEC	 	//如果时钟节拍数定义了,说明要使用ucosII了.
-	OSIntExit();  											 
-#endif
-} 
-#endif	
+// #ifdef OS_TICKS_PER_SEC	 	//如果时钟节拍数定义了,说明要使用ucosII了.
+// 	OSIntExit();  											 
+// #endif
+// } 
+// #endif	
 
