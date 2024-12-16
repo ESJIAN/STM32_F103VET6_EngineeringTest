@@ -23,8 +23,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h" 
-
-
+#include"Card.H"
  
 void NMI_Handler(void)
 {
