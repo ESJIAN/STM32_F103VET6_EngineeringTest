@@ -69,8 +69,12 @@ unsigned char char_nfc_data[16]={0};	//
                 sprintf(char_nfc_data + 2 * i, "%02x", nfc_data[i]);
             }
 			OLED_ShowString(0,6,char_nfc_data);
-
-			SendData_to_Voice_modle(char_nfc_data,sizeof(char_nfc_data));
+			// Notice1:u8字符组可以直接传入汉字,会自动转换为GBK码
+			SendData_to_Voice_modle("赤水",sizeof(char_nfc_data));
+			
+			// Notice2:u8字符组需要转换为GBK码发送,但是不能有多余的空字符
+			u8 chinese_data[] = {0xB3, 0xE0, 0xCB, 0xAE};  // GBK 编码 "赤水"
+			SendData_to_Voice_modle(chinese_data,sizeof(char_nfc_data));
 
 		}
 
