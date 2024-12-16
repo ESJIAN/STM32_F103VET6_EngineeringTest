@@ -17,6 +17,7 @@ CARD Card;
 CMD Cmd;
 /* 本文件使用的函数声明 -------------------------------------------------------*/
 unsigned char CheckSum(unsigned char *dat, unsigned char num);
+void Delay(__IO uint32_t nCount);
 /* 本文件函数体 ---------------------------------------------------------------*/
 void UartSendCommand(u8 *buff, u8 cnt);
 u8 UartReceiveCommand(void);
@@ -213,6 +214,7 @@ unsigned char CommandProcess(void)
 			//Cmd.ReceiveBuffer[3] 		-> 状态码
 			//Cmd.ReceiveBuffer[4~5] 	-> 卡类型
 			//Cmd.ReceiveBuffer[6~9] 	-> 卡号
+			//Cmd.ReceiveBuffer[10~25] 	-> 卡数据()
 			
 			Card.UID = Cmd.ReceiveBuffer[9]; Card.UID <<= 8;
 			Card.UID |= Cmd.ReceiveBuffer[8]; Card.UID <<= 8;

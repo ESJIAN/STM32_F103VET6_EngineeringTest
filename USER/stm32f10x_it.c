@@ -95,6 +95,13 @@ void USART1_IRQHandler(void)
 		
 		if(Cmd.ReceivePoint < 32)
 		{
+      //Cmd.ReceiveBuffer[0] 		-> ÃüÁî³¤¶È
+			//Cmd.ReceiveBuffer[1] 		-> Ä£¿éµØÖ·
+			//Cmd.ReceiveBuffer[2] 		-> ÃüÁîÂë
+			//Cmd.ReceiveBuffer[3] 		-> ×´Ì¬Âë
+			//Cmd.ReceiveBuffer[4~5] 	-> ¿¨ÀàÐÍ
+			//Cmd.ReceiveBuffer[6~9] 	-> ¿¨ºÅ
+			//Cmd.ReceiveBuffer[10~25] 	-> ¿¨Êý¾Ý()
 			Cmd.ReceiveBuffer[Cmd.ReceivePoint++] = bTemp;
 		}
 	}
