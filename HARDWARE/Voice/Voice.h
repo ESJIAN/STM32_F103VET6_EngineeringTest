@@ -19,7 +19,7 @@
 /* 外部变量 -------------------------------------------------------------------*/
 
 /* 外部函数 ------------------------------------------------------------------ */
-void SendData_to_Voice_modle(uint8_t *data, uint8_t length);
+void SendData_to_Voice_modle(u8 *data, u8 length);
 void Voice_modle_Init(u32 Voice_SerialBaudRate);
 #endif /* __Card_H */
 

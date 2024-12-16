@@ -56,6 +56,7 @@ unsigned char char_nfc_data[16]={0};	//
 	
 		LED0=0;
 		LED1=0;
+
 		while(1)
 		{
 		//命令处理函数会不断的检查是否有收到命令
@@ -68,10 +69,20 @@ unsigned char char_nfc_data[16]={0};	//
             {
                 sprintf(char_nfc_data + 2 * i, "%02x", nfc_data[i]);
             }
+			// 把NFC读取到的数据块显示到LED上
 			OLED_ShowString(0,6,char_nfc_data);
-			// Notice1:u8字符组可以直接传入汉字,会自动转换为GBK码
-			SendData_to_Voice_modle(char_nfc_data,sizeof(char_nfc_data));
 
+			// Notice1:u8字符组可以直接传入汉字,会自动转换为GBK码
+			// 根据数据包的十六进制内容播报不同的提示
+			if (char_nfc_data[0]==0xb3&&char_nfc_data[1]==0xe0&&char_nfc_data[2]==0xcb&&char_nfc_data[3]==0xae)
+			{
+				SendData_to_Voice_modle("赤水",sizeof(char_nfc_data));
+			}
+			else
+			{
+				SendData_to_Voice_modle("暂未添加",sizeof(char_nfc_data));
+			}
+		
 		}
 
 
