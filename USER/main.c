@@ -58,8 +58,8 @@ unsigned char char_nfc_data[16];
 		while(1)
 		{
 		//命令处理函数会不断的检查是否有收到命令
-		bTemp = CommandProcess();
-		if(bTemp == 0)
+		btemp = CommandProcess();
+		if(btemp == 0)
 		{
 			// 如果读取成功，则把数据帧的数据包拷贝到nfc_data数组中
 			memcpy(nfc_data,Card.BlockData,sizeof(Card.BlockData));
