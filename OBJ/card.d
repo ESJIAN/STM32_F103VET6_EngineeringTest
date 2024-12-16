@@ -1,0 +1,13 @@
+..\obj\card.o: ..\HARDWARE\NFC\Card.c
+..\obj\card.o: ..\HARDWARE\NFC\Card.H
+..\obj\card.o: ..\USER\stm32f10x.h
+..\obj\card.o: ..\CORE\core_cm3.h
+..\obj\card.o: E:\Keil5\Core\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\card.o: ..\USER\system_stm32f10x.h
+..\obj\card.o: ..\USER\stm32f10x_conf.h
+..\obj\card.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\card.o: ..\USER\stm32f10x.h
+..\obj\card.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\card.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\card.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\card.o: ..\STM32F10x_FWLib\inc\misc.h

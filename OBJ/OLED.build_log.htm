@@ -3,41 +3,77 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: μVision V5.14.0.0
-Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: he jiahuan, HUD, LIC=X1E56-D2QSL-E09N4-FI5PD-NQ06M-6109H
+IDE-Version: μVision V5.29.0.0
+Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 223 233, 2323324232, LIC=9WSKC-71EPK-8T83P-MC3GC-TF58J-PSI61
  
 Tool Versions:
-Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
-Toolchain Path:  D:\Software\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.05 update 1 (build 106)
-Assembler:       Armasm.exe V5.05 update 1 (build 106)
-Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
-Library Manager: ArmAr.exe V5.05 update 1 (build 106)
-Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
-CPU DLL:         SARMCM3.DLL V5.14.0.0
-Dialog DLL:      DCM.DLL V1.13.1.0
-Target DLL:      Segger\JL2CM3.dll V2.99.13.0
-Dialog DLL:      TCM.DLL V1.14.4.0
+Toolchain:       MDK-ARM Plus  Version: 5.29.0.0
+Toolchain Path:  E:\Keil5\Core\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.29.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      CMSIS_AGDI.dll V1.32.0.0
+Dialog DLL:      TCM.DLL V1.36.5.0
  
 <h2>Project:</h2>
-C:\Users\Administrator\Desktop\TB\开发板代码\STM32_F103VET6核心板出厂测试例程\STM32_F103VET6核心板出厂测试例程\USER\OLED.uvprojx
-Project File Date:  07/04/2019
+C:\Users\Administrator\Documents\CODE\VsCode\KeilArm\STM32_F103VET6核心板出厂测试例程\USER\OLED.uvprojx
+Project File Date:  12/16/2024
 
 <h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'E:\Keil5\Core\ARM\ARMCC\Bin'
 Build target 'Target 1'
+compiling led.c...
 compiling main.c...
+main.c(65): error:  #29: expected an expression
+  			for (int i = 0; i < 16; i++) 
+main.c(65): error:  #20: identifier "i" is undefined
+  			for (int i = 0; i < 16; i++) 
+main.c(67): warning:  #223-D: function "sprintf" declared implicitly
+                  sprintf(char_nfc_data + 2 * i, "%02x", nfc_data[i]);
+main.c(128): warning:  #1-D: last line of file ends without a newline
+  }
+main.c: 2 warnings, 2 errors
+compiling stm32f10x_it.c...
 compiling key.c...
-linking...
-Program Size: Code=6468 RO-data=2408 RW-data=2552 ZI-data=1832  
-FromELF: creating hex file...
-"..\OBJ\OLED.axf" - 0 Error(s), 0 Warning(s).
+compiling system_stm32f10x.c...
+compiling Card.c...
+..\HARDWARE\NFC\Card.c(328): warning:  #223-D: function "Delay" declared implicitly
+  		Delay(4);
+..\HARDWARE\NFC\Card.c: 1 warning, 0 errors
+compiling oled.c...
+assembling startup_stm32f10x_hd.s...
+compiling delay.c...
+compiling sys.c...
+compiling usart.c...
+..\SYSTEM\usart\usart.c(51): warning:  #940-D: missing return statement at end of non-void function "_sys_exit" 
+  } 
+..\SYSTEM\usart\usart.c: 1 warning, 0 errors
+compiling core_cm3.c...
+compiling misc.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_usart.c...
+"..\OBJ\OLED.axf" - 2 Error(s), 4 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
+                Keil.STM32F1xx_DFP.2.4.1
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\Administrator\Desktop\TB\开发板代码\STM32_F103VET6核心板出厂测试例程\STM32_F103VET6核心板出厂测试例程\USER\RTE
-  D:\Software\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include
+  .\RTE\_Target_1
+  E:\Keil5\Pack\Keil\STM32F1xx_DFP\2.4.1\Device\Include
 
 <h2>Collection of Component Files used:</h2>
+Target not created.
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
