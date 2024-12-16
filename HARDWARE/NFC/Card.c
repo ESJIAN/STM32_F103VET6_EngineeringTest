@@ -307,7 +307,7 @@ void UartSendCommand(u8 *buff, u8 cnt)
 		if(*(buff + i) == 0x7F)
 		{
 			while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
-    USART_SendData(USART1, 0x7F);
+    		USART_SendData(USART1, 0x7F);
 		}
   }
 }
@@ -327,7 +327,7 @@ u8 UartReceiveCommand(void)
 	if(Cmd.ReceivePoint > 0)
 	{
 		//接收完剩下的数据
-		Delay(4);
+		// Delay(4);
 		//去掉命令头
 		Cmd.ReceiveBuffer[0] = Cmd.ReceiveBuffer[1];
 		//去掉数据中多出的一个7F

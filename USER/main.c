@@ -36,10 +36,10 @@
 #include "led.h"
 #include "Card.H"
 #include "string.h"
-u32 TimingDelay;
-u8 btemp=0;
-unsigned char nfc_data[16];     // Notice:不能换成u8类型数组,否则Debug会进入循环
-unsigned char char_nfc_data[16];
+// u32 TimingDelay;
+u8 btemp;
+unsigned char nfc_data[16]={9};     // Notice:不能换成u8类型数组,否则Debug会进入循环
+unsigned char char_nfc_data[16]={0};	//
  int main(void)
  {	u8 t;
 	  u8 i;
@@ -122,9 +122,9 @@ unsigned char char_nfc_data[16];
 * 输出          : None
 * 返回          : None
 *******************************************************************************/
-void Delay(__IO uint32_t nCount)
-{
-  TimingDelay = nCount;
-  while(TimingDelay != 0){}
-  SysTick->VAL = (uint32_t)0x0;
-}
+// void Delay(__IO uint32_t nCount)
+// {
+//   TimingDelay = nCount;
+//   while(TimingDelay != 0){}
+//   SysTick->VAL = (uint32_t)0x0;
+// }

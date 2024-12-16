@@ -101,7 +101,7 @@ void USART1_IRQHandler(void)
 			//Cmd.ReceiveBuffer[3] 		-> 状态码
 			//Cmd.ReceiveBuffer[4~5] 	-> 卡类型
 			//Cmd.ReceiveBuffer[6~9] 	-> 卡号
-			//Cmd.ReceiveBuffer[10~25] 	-> 卡数据()
+			//Cmd.ReceiveBuffer[10~25] 	-> 卡数据
 			Cmd.ReceiveBuffer[Cmd.ReceivePoint++] = bTemp;
 		}
 	}
