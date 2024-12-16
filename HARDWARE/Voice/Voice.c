@@ -10,8 +10,9 @@
  * @param data 要发送的数据数组
  * @param length 要发送的数据长度
  */
-void SendData_to_Voice_modle(uint8_t *data, uint8_t length) {
-    for (uint8_t i = 0; i < length; i++) {
+void SendData_to_Voice_modle(u8 *data, u8 length) {
+	  u8 i;
+    for (i = 0; i < length; i++) {
         // 等待 USART 数据寄存器空，准备发送
         while (USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
 
