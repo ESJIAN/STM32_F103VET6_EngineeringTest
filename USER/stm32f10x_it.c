@@ -24,7 +24,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h" 
 #include"Card.H"
- 
+
 void NMI_Handler(void)
 {
 }
@@ -103,6 +103,8 @@ void USART1_IRQHandler(void)
 			//Cmd.ReceiveBuffer[6~9] 	-> ¿¨ºÅ
 			//Cmd.ReceiveBuffer[10~25] 	-> ¿¨Êý¾Ý
 			Cmd.ReceiveBuffer[Cmd.ReceivePoint++] = bTemp;
+      
+      
 		}
 	}
 }
