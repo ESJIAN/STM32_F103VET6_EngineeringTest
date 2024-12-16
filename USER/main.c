@@ -70,6 +70,8 @@ unsigned char char_nfc_data[16]={0};	//
             }
 			OLED_ShowString(0,6,char_nfc_data);
 
+			SendData_to_Voice_modle(char_nfc_data,sizeof(char_nfc_data));
+
 		}
 
 
