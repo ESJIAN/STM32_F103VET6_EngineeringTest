@@ -73,6 +73,7 @@ unsigned char char_nfc_data[16]={0};	//
 
 
 
+
 			t=KEY_Scan(0);		//µÃµ½¼üÖµ
 			switch(t)
 			{				 
