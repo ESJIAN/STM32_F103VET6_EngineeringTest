@@ -35,7 +35,7 @@
 #include "key.h"
 #include "led.h"
 #include "Card.H"
-
+#include"string.h"
 u32 TimingDelay;
 u8 bTemp;
 unsigned char nfc_data[16];
@@ -72,8 +72,7 @@ unsigned char nfc_data[16];
 		bTemp = CommandProcess();
 		if(bTemp == 0)
 		{
-				nfc_data = Card.BlockData;
-
+			memcpy(nfc_data,Card.BlockData,sizeof(Card.BlockData));
 		}
 
 
