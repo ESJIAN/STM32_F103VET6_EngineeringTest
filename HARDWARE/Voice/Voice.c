@@ -13,10 +13,14 @@
 void SendData_to_Voice_modle(u8 *data, u8 length) {
 	  u8 i;
     for (i = 0; i < length; i++) {
-        // 等待 USART 数据寄存器空，准备发送
-        while (USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
-        // 发送一个字节数据
-        USART_SendData(USART2, data[i]);
+
+         // 只发送非零字节
+        if (data[i] != 0x00) {
+            // 等待 USART 数据寄存器空，准备发送
+             while (USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
+             // 发送一个字节数据
+             USART_SendData(USART2, data[i]);
+        
     }
 }
 
