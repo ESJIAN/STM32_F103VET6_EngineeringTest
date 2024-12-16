@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\KEY;..\HARDWARE\OLED;..\HARDWARE\LED;..\HARDWARE\NFC</IncludePath>
+              <IncludePath>..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\KEY;..\HARDWARE\OLED;..\HARDWARE\LED;..\HARDWARE\NFC;..\HARDWARE\Voice</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -421,6 +421,11 @@
               <FileName>Card.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\NFC\Card.c</FilePath>
+            </File>
+            <File>
+              <FileName>Voice.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\Voice\Voice.c</FilePath>
             </File>
           </Files>
         </Group>

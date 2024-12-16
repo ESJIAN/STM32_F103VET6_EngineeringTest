@@ -44,12 +44,12 @@ unsigned char char_nfc_data[16]={0};	//
  int main(void)
  {	u8 t;
 	  u8 i;
-		delay_init();	    	 //延时函数初始化	  
+		delay_init();	    	     //延时函数初始化	  
 		NVIC_Configuration(); 	 //设置NVIC中断分组2:2位抢占优先级，2位响应优先级 	LED_Init();			     //LED端口初始化
-		OLED_Init();			//初始化OLED  
-		OLED_Clear()  	; 
-	 	LED_Init();		  	 	//初始化与LED连接的硬件接口
-		KEY_Init();          	//初始化与按键连接的硬件接口
+		OLED_Init();			       //初始化OLED  
+		OLED_Clear()  	; 			 //
+	 	LED_Init();		  	 	     //初始化与LED连接的硬件接口
+		KEY_Init();          	   //初始化与按键连接的硬件接口
 		OLED_Clear();
 		NFC_Init(115200);
 		Voice_modle_Init(9600);

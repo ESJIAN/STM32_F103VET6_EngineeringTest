@@ -38,7 +38,7 @@
             "path": "../HARDWARE/NFC/Card.c"
           },
           {
-            "path": "../HARDWARE/NFC/Card.H"
+            "path": "../HARDWARE/Voice/Voice.c"
           }
         ],
         "folders": []
@@ -247,7 +247,8 @@
           "../CORE",
           "../HARDWARE/KEY",
           "../HARDWARE/OLED",
-          "../HARDWARE/NFC"
+          "../HARDWARE/NFC",
+          "../HARDWARE/Voice"
         ],
         "libList": [],
         "defineList": [
