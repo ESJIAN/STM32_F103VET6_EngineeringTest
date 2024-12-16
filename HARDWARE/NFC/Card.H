@@ -45,7 +45,7 @@ void Inc(unsigned char block, unsigned long value);
 void Dec(unsigned char block, unsigned long value);
 void ClearCard(unsigned char block);
 unsigned char CommandProcess(void);
-
+void NFC_Init(u32 NFC_SerialBaudRate);
 #endif /* __Card_H */
 
 /***************** (C) COPYRIGHT 2017 ”≈¡Èø∆ºº***** END OF FILE ****************/
