@@ -36,6 +36,9 @@
           },
           {
             "path": "../HARDWARE/NFC/Card.c"
+          },
+          {
+            "path": "../HARDWARE/NFC/Card.H"
           }
         ],
         "folders": []
@@ -243,7 +246,8 @@
           "../STM32F10x_FWLib/inc",
           "../CORE",
           "../HARDWARE/KEY",
-          "../HARDWARE/OLED"
+          "../HARDWARE/OLED",
+          "../HARDWARE/NFC"
         ],
         "libList": [],
         "defineList": [

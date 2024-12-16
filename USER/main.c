@@ -34,7 +34,7 @@
 #include "bmp.h"
 #include "key.h"
 #include "led.h"
-
+#include "Card.H"
 
 u32 TimingDelay;
 
@@ -68,6 +68,16 @@ u32 TimingDelay;
 		LED1=0;
 		while(1)
 		{
+		//命令处理函数会不断的检查是否有收到命令
+		bTemp = CommandProcess();
+		if(bTemp == 0)
+		{
+				u8 nfc_data[16] = Card.BlockData;
+
+		}
+
+
+
 			t=KEY_Scan(0);		//得到键值
 			switch(t)
 			{				 
