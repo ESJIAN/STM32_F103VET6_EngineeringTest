@@ -39,6 +39,7 @@
 u32 TimingDelay;
 u8 bTemp;
 unsigned char nfc_data[16];
+unsigned char char_nfc_data[16];
  int main(void)
  {	u8 t;
 		delay_init();	    	 //延时函数初始化	  
@@ -72,7 +73,14 @@ unsigned char nfc_data[16];
 		bTemp = CommandProcess();
 		if(bTemp == 0)
 		{
+			// 如果读取成功，则把数据帧的数据包拷贝到nfc_data数组中
 			memcpy(nfc_data,Card.BlockData,sizeof(Card.BlockData));
+			for (int i = 0; i < 16; i++) 
+            {
+                sprintf(char_nfc_data + 2 * i, "%02x", nfc_data[i]);
+            }
+			OLED_ShowString(0,6,char_nfc_data);
+
 		}
 
 
