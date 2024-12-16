@@ -36,7 +36,7 @@
 #include "led.h"
 
 
-extern u32 TimingDelay;
+u32 TimingDelay;
 
 
  int main(void)
