@@ -47,43 +47,53 @@ unsigned char char_nfc_data[16]={0};	//
 		delay_init();	    	     //延时函数初始化	  
 		NVIC_Configuration(); 	 //设置NVIC中断分组2:2位抢占优先级，2位响应优先级 	LED_Init();			     //LED端口初始化
 		OLED_Init();			       //初始化OLED  
-		OLED_Clear()  	; 			 //
-	 	LED_Init();		  	 	     //初始化与LED连接的硬件接口
-		KEY_Init();          	   //初始化与按键连接的硬件接口
+		OLED_Clear()  	; 			   //
+	 	LED_Init();		  	 	       //初始化与LED连接的硬件接口
+		KEY_Init();          	       //初始化与按键连接的硬件接口
 		OLED_Clear();
 		NFC_Init(115200);
-		Voice_modle_Init(9600);
+		Voice_modle_Init(9600);   
 	
 		LED0=0;
 		LED1=0;
 
 		while(1)
 		{
+
+
+
 		//命令处理函数会不断的检查是否有收到命令
 		btemp = CommandProcess();
 		if(btemp == 0)
-		{
-			// 如果读取成功，则把数据帧的数据包拷贝到nfc_data数组中
+		{	// 等待NFC 串口帧接收完毕
 			memcpy(nfc_data,Card.BlockData,sizeof(Card.BlockData));
+			// 如果读取成功，则把数据帧的数据包拷贝到nfc_data数组中
 			for (i = 0; i < 16; i++) 
-            {
+            {	
                 sprintf(char_nfc_data + 2 * i, "%02x", nfc_data[i]);
             }
 			// 把NFC读取到的数据块显示到LED上
 			OLED_ShowString(0,6,char_nfc_data);
-
 			// Notice1:u8字符组可以直接传入汉字,会自动转换为GBK码
 			// 根据数据包的十六进制内容播报不同的提示
 			if (char_nfc_data[0]==0xb3&&char_nfc_data[1]==0xe0&&char_nfc_data[2]==0xcb&&char_nfc_data[3]==0xae)
 			{
-				SendData_to_Voice_modle("赤水",sizeof(char_nfc_data));
+				SendData_to_Voice_modle("赤水",sizeof("赤水"));
 			}
 			else
 			{
-				SendData_to_Voice_modle("暂未添加",sizeof(char_nfc_data));
+				SendData_to_Voice_modle("待添加",sizeof(char_nfc_data));
+				SendData_to_Voice_modle(char_nfc_data,sizeof(char_nfc_data));
+
 			}
-		
+
 		}
+		
+
+
+
+
+		
 
 
 
