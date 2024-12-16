@@ -63,7 +63,6 @@ unsigned char char_nfc_data[16];
 
 
 
-
 	
 		LED0=0;
 		LED1=0;
