@@ -34,6 +34,11 @@
 #include "bmp.h"
 #include "key.h"
 #include "led.h"
+
+
+extern u32 TimingDelay;
+
+
  int main(void)
  {	u8 t;
 		delay_init();	    	 //延时函数初始化	  
