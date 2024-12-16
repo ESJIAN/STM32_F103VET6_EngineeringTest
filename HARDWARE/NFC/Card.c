@@ -341,3 +341,60 @@ u8 UartReceiveCommand(void)
 	}
 	return 0;
 }
+
+
+
+/*******************************************************************************
+* 函数名         : NFC_INit
+* 描述           : NFC初始化,包括时钟使能,GPIO配置,USART配置,USART中断使能,NVIC配置,使能USART
+* 输入           : NFC模块通信波特率
+* 输出           : 无
+* 返回           : 无
+*******************************************************************************/
+void NFC_Init(u32 NFC_SerialBaudRate)
+{
+	GPIO_InitTypeDef GPIO_InitStructure;
+    USART_InitTypeDef USART_InitStructure;
+    NVIC_InitTypeDef NVIC_InitStructure;
+
+    // 1. 开启 USART 和 GPIO 时钟
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE);
+
+    // 2. 配置 GPIO
+    // TX: PA9
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+    // RX: PA10
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+    // 3. USART 配置
+    USART_InitStructure.USART_BaudRate = NFC_SerialBaudRate;
+    USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+    USART_InitStructure.USART_StopBits = USART_StopBits_1;
+    USART_InitStructure.USART_Parity = USART_Parity_No;
+    USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+    USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
+    USART_Init(USART1, &USART_InitStructure);
+
+    // 4. 使能 USART 接收中断
+    USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+
+    // 5. NVIC 配置
+    NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+
+    // 6. 使能 USART
+    USART_Cmd(USART1, ENABLE);
+
+
+
+}
+
