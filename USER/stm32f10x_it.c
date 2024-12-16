@@ -79,6 +79,27 @@ void SysTick_Handler(void)
 {
 }
 
+/*******************************************************************************
+* Function Name  : USART1_IRQHandler
+* Description    : This function handles USART1 global interrupt request.
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void USART1_IRQHandler(void)
+{
+	static u8 bTemp;
+	
+	if(USART_GetITStatus(USART1, USART_IT_RXNE) == SET)
+	{
+		bTemp = USART_ReceiveData(USART1);
+		
+		if(Cmd.ReceivePoint < 32)
+		{
+			Cmd.ReceiveBuffer[Cmd.ReceivePoint++] = bTemp;
+		}
+	}
+}
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */
